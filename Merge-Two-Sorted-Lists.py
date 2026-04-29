@@ -1,26 +1,23 @@
-'''
-Time complexity = O(m+n)
-Space complexity = O(1) --> fixed dummy node and tail is just a pointer reference
-'''
-# Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
-class Solution:
-    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
-        dummy = ListNode()
-        tail = dummy
-        while list1 and list2:
-            if list1.val < list2.val:
-                tail.next = list1
-                list1 = list1.next
-            else:
-                tail.next = list2
-                list2 = list2.next
-            tail = tail.next
-        if list1:
-            tail.next = list1
-        elif list2:
-            tail.next = list2
-        return dummy.next
+1# Definition for singly-linked list.
+2# class ListNode:
+3#     def __init__(self, val=0, next=None):
+4#         self.val = val
+5#         self.next = next
+6class Solution:
+7    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+8
+9        dummy = ListNode()
+10        tail = dummy
+11        while list1 and list2:
+12            if list1.val < list2.val:
+13                tail.next = list1
+14                list1 = list1.next
+15            else:
+16                tail.next = list2
+17                list2 = list2.next
+18            tail = tail.next
+19        if list1:
+20            tail.next = list1
+21        if list2:
+22            tail.next = list2
+23        return dummy.next
