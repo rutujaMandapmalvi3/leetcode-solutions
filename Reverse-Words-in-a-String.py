@@ -1,15 +1,13 @@
-'''
-Time complexity = O(n)
-Space complexity = O(n)
-'''
-class Solution:
-    def reverseWords(self, s: str) -> str:
-        words = s.split()
-        l, r = 0, len(words)-1
-        while l<r:
-            temp = words[l]
-            words[l] = words[r]
-            words[r] = temp
-            r -= 1
-            l += 1
-        return " ".join(words)
+1class Solution:
+2    def reverseWords(self, s: str) -> str:
+3        s_reverse = s.split()
+4        left = 0
+5        right = len(s_reverse) - 1
+6        
+7        while left < right:
+8            s_reverse[left], s_reverse[right] = s_reverse[right], s_reverse[left]
+9
+10            left += 1
+11            right -= 1
+12
+13        return " ".join(s_reverse)
