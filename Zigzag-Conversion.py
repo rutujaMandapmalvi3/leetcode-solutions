@@ -2,20 +2,11 @@
 2    def convert(self, s: str, numRows: int) -> str:
 3        if numRows == 1:
 4            return s
-5
-6        i = 0
-7        d = 1
-8        rows = [[] for _ in range(numRows)]
-9
-10        for char in s:
-11            rows[i].append(char)
-12            if i == 0:
-13                d = 1
-14            elif i == numRows - 1:
-15                d = -1
-16            i += d
-17
-18        ret = ''
-19        for i in range(numRows):
-20            ret += ''.join(rows[i])
-21        return ret
+5        res = ""
+6        for r in range(numRows):
+7            increment = 2 * (numRows - 1)
+8            for i in range(r, len(s), increment):
+9                res += s[i]
+10                if (r>0 and r<numRows - 1 and i + increment - 2 * r < len(s)):
+11                    res += s[i + increment - 2*r]
+12        return res
