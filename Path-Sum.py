@@ -11,6 +11,5 @@
 11
 12        if not root.left and not root.right:
 13            return root.val == targetSum
-14            
-15        remaining = targetSum - root.val
-16        return self.hasPathSum(root.left, remaining) or self.hasPathSum(root.right, remaining)
+14        remaining = targetSum - root.val
+15        return (self.hasPathSum(root.left, remaining) or self.hasPathSum(root.right, remaining))
