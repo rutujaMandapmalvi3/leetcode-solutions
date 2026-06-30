@@ -7,7 +7,7 @@
 7
 8class Solution:
 9    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
-10        parent = {root:None}
+10        '''parent = {root:None}
 11        stack = [root]
 12        while stack:
 13            node = stack.pop()
@@ -24,4 +24,14 @@
 24        while not q in ancestors:
 25            q = parent[q]
 26        
-27        return q
+27        return q'''
+28
+29        if not root or p == root or q == root:
+30            return root
+31        leftLCA = self.lowestCommonAncestor(root.left, p, q)
+32        rightLCA = self.lowestCommonAncestor(root.right, p, q)
+33
+34        if leftLCA and rightLCA:
+35            return root
+36
+37        return leftLCA or rightLCA
