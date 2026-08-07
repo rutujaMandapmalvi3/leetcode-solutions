@@ -1,13 +1,3 @@
-#----------------------------------
-'''
-optimised -
-time complexity = o(min(m,n)) -> either of the tree
-space complexity = O(min(h1, h2))
-
-NO OPTIMIZED SOLUTION FOUND
-AN ALTERNATE SOLUTION WITH WHILE IS WRITTER BELOW THE MAIN CODE
-'''
-#----------------------------------
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -16,9 +6,19 @@ AN ALTERNATE SOLUTION WITH WHILE IS WRITTER BELOW THE MAIN CODE
 #         self.right = right
 class Solution:
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
-        if not p and not q:
-            return True
-        if not p or not q or p.val != q.val:
-            return False
-        return (self.isSameTree(p.left, q.left) and
-        self.isSameTree(p.right, q.right))
+        '''def dfs(node_p,node_q):
+            if not node_p and not node_q:
+                return True
+            elif not node_p or not node_q:
+                return False
+                
+            
+            left = dfs(node_p.left,node_q.left)
+            right = dfs(node_p.right,node_q.right)
+            if node_p.val == node_q.val and left and right:
+                return True
+            else:
+                return False
+
+        return dfs(p,q)'''
+        
