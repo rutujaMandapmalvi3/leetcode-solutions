@@ -5,28 +5,21 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def maxDepth(self, root: Optional[TreeNode]) -> int:
-        '''
-        if not root:
-            return 0
-        return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))'''
+    def maxDepth(self, root: TreeNode) -> int:
+        '''def recursive(root):
+            if root == None:
+                return 0
 
-        '''if not root:
-            return 0
-        stk = [[root, 1]]
-        res = 1
-        while stk:
-            node, depth = stk.pop()
-            if node:
-                res = max(res, depth)
-                stk.append([node.right, depth + 1])
-                stk.append([node.left, depth + 1])
-        return res'''
+            return max(recursive(root.left)+1,recursive(root.right)+1)
 
-        if not root:
-            return 0
+        return recursive(root)'''
 
-        left_max = self.maxDepth(root.left)
-        right_max = self.maxDepth(root.right)
-        
-        return 1 + max(left_max, right_max)
+        if root is None:
+            return 0
+        return 1 + max(self.maxDepth(root.right), self.maxDepth(root.left))
+                    
+                
+
+
+
+            
